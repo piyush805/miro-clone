@@ -12,19 +12,22 @@ interface BoardListProps {
   orgId: string;
   query: {
     search?: string;
-    favorite?: string;
+    favorites?: string;
   };
 }
 
 export function BoardList({ orgId, query }: BoardListProps) {
-  const data = useQuery(api.boards.get, { orgId });
+  const data = useQuery(api.boards.get, {
+    orgId,
+    ...query,
+  });
 
   // check undefined for loading state
   if (data === undefined) {
     return (
       <div>
         <h2 className="text-3xl ">
-          {query.favorite ? `Favorite boards` : `Team boards`}
+          {query.favorites ? `Favorite boards` : `Team boards`}
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6  gap-5 mt-8 pb-10">
@@ -44,7 +47,7 @@ export function BoardList({ orgId, query }: BoardListProps) {
     return <EmptySearch />;
   }
 
-  if (!data?.length && query.favorite) {
+  if (!data?.length && query.favorites) {
     return <EmptyFavorite />;
   }
 
@@ -54,7 +57,7 @@ export function BoardList({ orgId, query }: BoardListProps) {
   return (
     <div>
       <h2 className="text-3xl ">
-        {query.favorite ? `Favorite boards` : `Team boards`}
+        {query.favorites ? `Favorite boards` : `Team boards`}
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6  gap-5 mt-8 pb-10">
