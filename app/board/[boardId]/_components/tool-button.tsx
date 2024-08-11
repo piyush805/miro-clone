@@ -25,14 +25,10 @@ export const ToolButton = ({
       <Button
         variant={isActive ? "boardActive" : "board"}
         size="icon"
-        className="text-base font-normal px-2"
         onClick={onClick}
         disabled={isDisabled}
       >
-        <div className="flex items-center gap-x-1">
-          <Icon />
-          {isActive && <span className="text-neutral-300">•</span>}
-        </div>
+        <Icon />
       </Button>
     </Hint>
   );
