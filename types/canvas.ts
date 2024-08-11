@@ -59,8 +59,8 @@ export type TextLayer = {
   value?: string;
 };
 
-export type Note = {
-  type: LayerType.Text;
+export type NoteLayer = {
+  type: LayerType.Note;
   x: number;
   y: number;
   height: number;
@@ -131,3 +131,10 @@ export enum CanvasMode {
   Resizing,
   Pencil,
 }
+
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | PathLayer
+  | TextLayer
+  | NoteLayer;
