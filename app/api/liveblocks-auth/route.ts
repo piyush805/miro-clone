@@ -4,8 +4,7 @@ import { api } from "@/convex/_generated/api";
 import { auth, currentUser } from "@clerk/nextjs/server";
 
 const liveblocks = new Liveblocks({
-  secret:
-    "sk_dev_oMwIVvNvSa_zR6XTzhos3kXPSdWNOCH3yeIiQFW4eMMBS0zj1spiGsUsEwJT9-Fv",
+  secret: process.env.NEXT_PUBLIC_LIVEBLOCKS_SECRET_KEY!,
 });
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
