@@ -95,11 +95,11 @@ export type CanvasState =
   | {
       mode: CanvasMode.SelectionNet;
       origin: Point; // start point x0, y0
-      cursor?: Point; // current point of the selection net
+      current?: Point; // current point of the selection net
     }
   | {
       mode: CanvasMode.Translating;
-      cursor: Point;
+      current: Point;
     }
   | {
       mode: CanvasMode.Inserting;
