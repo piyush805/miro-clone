@@ -4,7 +4,6 @@ import ContentEditable, { ContentEditableEvent } from "react-contenteditable";
 import { cn, colorToCss } from "@/lib/utils";
 import { TextLayer } from "@/types/canvas";
 import { useMutation } from "@/liveblocks.config";
-import { max } from "date-fns";
 
 const font = Kalam({ subsets: ["latin"], weight: "400" });
 
